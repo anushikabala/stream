@@ -17,7 +17,7 @@ flowchart = {
     "Option 1": {
         "question": "Are Missing Lens more than 5% ?",
         "options": ["Select","Yes", "No"],
-        "next": {"Select":"","Yes": "Option 2", "No": "End"}
+        "next": {"Yes": "Option 2", "No": "End"}
     },
     "Option 2": {
         "question": "Do the need full : 1. TOL stable no gaps. 2. Total Tower time < 70 %  ",
@@ -48,8 +48,9 @@ def chatbot():
         options = flowchart[current_state]["options"]
         
         selected_option = st.selectbox(question, options)
-        
-        current_state = flowchart[current_state]["next"][selected_option]
+
+        if selected_option != "Select":
+            current_state = flowchart[current_state]["next"][selected_option]
 
 def main():
     st.title("Chatbot Demo")
