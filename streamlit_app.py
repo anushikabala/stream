@@ -49,9 +49,11 @@ def chatbot():
         
         selected_option = st.selectbox(question, options)
 
-        if selected_option != "Select":
-            current_state = flowchart[current_state]["next"][selected_option]
-
+        if selected_option != "Select":  # Proceed only if a valid option is selected
+            try:
+                current_state = flowchart[current_state]["next"][selected_option]
+            except KeyError:
+                pass
 def main():
     st.title("Chatbot Demo")
     st.write("This is a simple chatbot demo.")
