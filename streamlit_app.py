@@ -3,15 +3,9 @@ import streamlit as st
 # Define your flowchart here
 flowchart = {
     "Start": {
-        "question": "Please select the issue ....",
-        "options": [
-            "Center Holes",
-            "Missing lenses", 
-            "Edge defect",
-            "Center Unknown",
-            "Others"
-            ],
-        "next": {"Missing lenses": "Option 1", "Center Holes": "End","Edge defect": "End","Center Unknown": "End","Others": "End"}
+        "question": "Welcome! Would you like to start?",
+        "options": ["Yes", "No"],
+        "next": {"Yes": "Option 1", "No": "End"}
     },
     "Option 1": {
         "question": "Option 1: Do you want more information?",
@@ -36,9 +30,12 @@ def chatbot():
         question = flowchart[current_state]["question"]
         options = flowchart[current_state]["options"]
         
-        selected_option = st.selectbox(question, options)
+        st.write(question)
         
-        current_state = flowchart[current_state]["next"][selected_option]
+        for option in options:
+            if st.button(option):
+                current_state = flowchart[current_state]["next"][option]
+                break
 
 def main():
     st.title("Chatbot Demo")
