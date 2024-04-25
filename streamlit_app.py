@@ -17,7 +17,7 @@ flowchart = {
     "Option 1": {
         "question": "Are Missing Lens more than 5% ?",
         "options": ["Select","Yes", "No"],
-        "next": {"Yes": "Option 2", "No": "End"}
+        "next": {"Select":"","Yes": "Option 2", "No": "End"}
     },
     "Option 2": {
         "question": "Do the need full : 1. TOL stable no gaps. 2. Total Tower time < 70 %  ",
