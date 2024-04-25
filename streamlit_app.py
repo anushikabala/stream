@@ -15,14 +15,24 @@ flowchart = {
         "next": {"Missing lenses": "Option 1", "Center Holes": "End","Edge defect": "End","Center Unknown": "End","Others": "End"}
     },
     "Option 1": {
-        "question": "Option 1: Do you want more information?",
+        "question": "Are Missing Lens more than 5% ?",
         "options": ["Yes", "No"],
         "next": {"Yes": "Option 2", "No": "End"}
     },
     "Option 2": {
-        "question": "Option 2: Are you sure?",
-        "options": ["Yes", "No"],
-        "next": {"Yes": "End", "No": "Option 1"}
+        "question": "Do the need full : 1. TOL stable no gaps. 2. Total Tower time < 70 %  ",
+        "options": ["Done", "Back"],
+        "next": {"Done": "Opt 3", "Back": "Option 1"}
+    },
+    "Opt 3": {
+        "question": "Now Audit images from ALI and estimate the amount of lenses present in the sample.",
+        "options": ["Done", "Back"],
+        "next": {"Done": "Opt 4", "Back": "Option 2"}
+    },
+    "Opt 4": {
+        "question": "Are there inverted/ off center or folded lense",
+        "options": ["Yes", "No","Back",],
+        "next": {"Yes": "Opt 3", "No": "End","Back": "Opt 3"}
     },
     "End": {
         "question": "Thank you for using the chatbot!",
