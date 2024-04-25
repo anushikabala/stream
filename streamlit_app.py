@@ -32,6 +32,10 @@ def chatbot():
         
         selected_option = st.selectbox(question, options)
         
+        if selected_option not in flowchart[current_state]["next"]:
+            st.write("Invalid option. Please try again.")
+            continue
+        
         current_state = flowchart[current_state]["next"][selected_option]
 
 def main():
