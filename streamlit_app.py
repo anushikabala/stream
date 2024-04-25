@@ -25,6 +25,7 @@ flowchart = {
 
 def chatbot():
     current_state = "Start"
+    previous_state = None
     
     while current_state != "End":
         question = flowchart[current_state]["question"]
@@ -32,10 +33,13 @@ def chatbot():
         
         selected_option = st.selectbox(question, options)
         
-        if selected_option not in flowchart[current_state]["next"]:
-            st.write("Invalid option. Please try again.")
+        if selected_option == "No" and previous_state:
+            current_state = previous_state
+            previous_state = None
+            st.write("Going back to previous option...")
             continue
         
+        previous_state = current_state
         current_state = flowchart[current_state]["next"][selected_option]
 
 def main():
