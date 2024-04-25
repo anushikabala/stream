@@ -3,36 +3,19 @@ import streamlit as st
 # Define your flowchart here
 flowchart = {
     "Start": {
-        "question": "Please select the issue ....",
-        "options": [
-            
-            "Center Holes",
-            "Missing lenses", 
-            "Edge defect",
-            "Center Unknown",
-            "Others"
-            ],
-        "next": {"Missing lenses": "Option 1", "Center Holes": "End","Edge defect": "End","Center Unknown": "End","Others": "End"}
+        "question": "Welcome! Would you like to start?",
+        "options": ["Yes", "No"],
+        "next": {"Yes": "Option 1", "No": "End"}
     },
     "Option 1": {
-        "question": "Are Missing Lens more than 5% ?",
+        "question": "Option 1: Do you want more information?",
         "options": ["Yes", "No"],
         "next": {"Yes": "Option 2", "No": "End"}
     },
     "Option 2": {
-        "question": "Do the need full : 1. TOL stable no gaps. 2. Total Tower time < 70 %  ",
-        "options": ["Done", "Back"],
-        "next": {"Done": "Opt 3", "Back": "Option 1"}
-    },
-    "Opt 3": {
-        "question": "Now Audit images from ALI and estimate the amount of lenses present in the sample.",
-        "options": ["Done", "Back"],
-        "next": {"Done": "Opt 4", "Back": "Option 2"}
-    },
-    "Opt 4": {
-        "question": "Are there inverted/ off center or folded lense",
-        "options": ["Yes", "No","Back",],
-        "next": {"Yes": "Opt 3", "No": "End","Back": "Opt 3"}
+        "question": "Option 2: Are you sure?",
+        "options": ["Yes", "No"],
+        "next": {"Yes": "End", "No": "Option 1"}
     },
     "End": {
         "question": "Thank you for using the chatbot!",
@@ -47,9 +30,14 @@ def chatbot():
         question = flowchart[current_state]["question"]
         options = flowchart[current_state]["options"]
         
-        selected_option = st.selectbox(question, options)
+        st.write(question)
         
-        current_state = flowchart[current_state]["next"][selected_option]
+        # Display clickable options
+        for option in options:
+            option_key = f"{current_state}_{option}"
+            if st.button(option, key=option_key):
+                current_state = flowchart[current_state]["next"][option]
+                break
 
 def main():
     st.title("Chatbot Demo")
