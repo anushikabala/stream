@@ -31,12 +31,14 @@ def chatbot():
         question = flowchart[current_state]["question"]
         options = flowchart[current_state]["options"]
         
-        selected_option = st.selectbox(question, options)
+        if current_state != "Start":
+            selected_option = st.radio(question, options)
+        else:
+            selected_option = st.selectbox(question, options)
         
         if selected_option == "No" and previous_state:
             current_state = previous_state
             previous_state = None
-            st.write("Going back to previous option...")
             continue
         
         previous_state = current_state
