@@ -30,12 +30,9 @@ def chatbot():
         question = flowchart[current_state]["question"]
         options = flowchart[current_state]["options"]
         
-        st.write(question)
-        # Display buttons for options
-        for option in options:
-            if st.button(option):
-                current_state = flowchart[current_state]["next"][option]
-                break
+        selected_option = st.selectbox(question, options)
+        
+        current_state = flowchart[current_state]["next"][selected_option]
 
 def main():
     st.title("Chatbot Demo")
