@@ -79,8 +79,8 @@ def chatbot():
         current_state = flowchart[current_state]["next"][selected_option]
 
 def main():
-    st.title("Chatbot Demo")
-    st.write("This is a simple chatbot demo.")
+    st.title("Vision Care")
+    st.write("Select the option from the dropdown (currently back option isn't working)")
     chatbot()
 
 if __name__ == "__main__":
