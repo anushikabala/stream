@@ -3,9 +3,15 @@ import streamlit as st
 # Define your flowchart here
 flowchart = {
     "Start": {
-        "question": "Welcome! Would you like to start",
-        "options": ["Yes", "No"],
-        "next": {"Yes": "Option 1", "No": "End"}
+        "question": "Please select the issue ....",
+        "options": [
+            "Missing lenses", 
+            "Center Holes",
+            "Edge defect",
+            "Center Unknown",
+            "Others"
+            ],
+        "next": {"Missing lenses": "Option 1", "Center Holes": "End","Edge defect": "End","Center Unknown": "End","Others": "End"}
     },
     "Option 1": {
         "question": "Option 1: Do you want more information?",
