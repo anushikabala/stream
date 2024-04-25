@@ -33,10 +33,9 @@ def chatbot():
         st.write(question)
         
         # Display clickable options
-        for option in options:
-            if st.button(option):
-                current_state = flowchart[current_state]["next"][option]
-                break
+        selected_option = st.radio("Select an option:", options)
+        
+        current_state = flowchart[current_state]["next"][selected_option]
 
 def main():
     st.title("Chatbot Demo")
