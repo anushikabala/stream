@@ -4,18 +4,18 @@ import streamlit as st
 flowchart = {
     "Start": {
         "question": "Welcome! Would you like to start?",
-        "options": ["Yes", "No"],
-        "next": {"Yes": "Option 1", "No": "End"}
+        "options": ["Yes_Start", "No_Start"],
+        "next": {"Yes_Start": "Option 1", "No_Start": "End"}
     },
     "Option 1": {
         "question": "Option 1: Do you want more information?",
-        "options": ["Yes", "No"],
-        "next": {"Yes": "Option 2", "No": "End"}
+        "options": ["Yes_Option1", "No_Option1"],
+        "next": {"Yes_Option1": "Option 2", "No_Option1": "End"}
     },
     "Option 2": {
         "question": "Option 2: Are you sure?",
-        "options": ["Yes", "No"],
-        "next": {"Yes": "End", "No": "Option 1"}
+        "options": ["Yes_Option2", "No_Option2"],
+        "next": {"Yes_Option2": "End", "No_Option2": "Option 1"}
     },
     "End": {
         "question": "Thank you for using the chatbot!",
