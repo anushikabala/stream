@@ -25,12 +25,16 @@ flowchart = {
 
 def chatbot():
     current_state = "Start"
+    first_iteration = True
     
     while current_state != "End":
         question = flowchart[current_state]["question"]
         options = flowchart[current_state]["options"]
         
-        st.write(question)
+        if not first_iteration:
+            st.write(question)
+        
+        first_iteration = False
         
         for i, option in enumerate(options):
             option_key = f"{current_state}_{option}_{i}"  # Unique key for each button
