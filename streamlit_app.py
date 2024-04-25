@@ -5,8 +5,8 @@ flowchart = {
     "Start": {
         "question": "Please select the issue ....",
         "options": [
-            "Missing lenses", 
             "Center Holes",
+            "Missing lenses", 
             "Edge defect",
             "Center Unknown",
             "Others"
