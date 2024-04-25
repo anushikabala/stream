@@ -31,10 +31,9 @@ def chatbot():
         options = flowchart[current_state]["options"]
         
         st.write(question)
-        # Display clickable buttons for options
+        # Display buttons for options
         for option in options:
-            key = f"{current_state}_{option}"  # Unique key based on current state and option
-            if st.button(option, key=key):
+            if st.button(option):
                 current_state = flowchart[current_state]["next"][option]
                 break
 
