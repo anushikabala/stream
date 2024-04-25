@@ -33,7 +33,7 @@ def chatbot():
         st.write(question)
         # Display clickable buttons for options
         for option in options:
-            if st.button(option):
+            if st.button(option, key=option):
                 current_state = flowchart[current_state]["next"][option]
                 break
 
