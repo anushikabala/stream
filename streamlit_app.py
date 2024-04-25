@@ -32,7 +32,7 @@ flowchart = {
     "Opt 4": {
         "question": "Are there inverted/ off center or folded lense?",
         "options": ["Select","Yes", "No","Back",],
-        "next": {"Select":"End","Yes": "Opt 3", "No": "Opt 5","Back": "Opt 3"}
+        "next": {"Select":"End","Yes": "Opt 9", "No": "Opt 5","Back": "Opt 3"}
     },
     "Opt 5": {
         "question": "Are there correctly oriented lenses in the audit?",
@@ -54,6 +54,13 @@ flowchart = {
         "options": ["Select","Location specific","General Missing",],
         "next": {"Select":"End","Location specific": "Opt 9", "General Missing": "End","Back": "Opt 6"}
     },
+    "Opt 9": {
+        "question": "Lenses become inverted, folded or off cemter in hydration towers or at transfer LTH",
+        "options": ["Select","Proceed","Back",],
+        "next": {"Select":"End","Proceed": "End", "No": "End","Back": "End"}
+    },
+
+
     "End": {
         "question": "Thank you for using the chatbot!",
         "options": []
