@@ -30,9 +30,29 @@ flowchart = {
         "next": {"Select":"End","Done": "Opt 4", "Back": "Option 2"}
     },
     "Opt 4": {
-        "question": "Are there inverted/ off center or folded lense",
+        "question": "Are there inverted/ off center or folded lense?",
         "options": ["Select","Yes", "No","Back",],
-        "next": {"Select":"End","Yes": "Opt 3", "No": "End","Back": "Opt 3"}
+        "next": {"Select":"End","Yes": "Opt 3", "No": "Opt 5","Back": "Opt 3"}
+    },
+    "Opt 5": {
+        "question": "Are there correctly oriented lenses in the audit?",
+        "options": ["Select","Yes", "No","Back",],
+        "next": {"Select":"End","Yes": "Opt 6", "No": "Opt 7","Back": "Opt 4"}
+    },
+    "Opt 6": {
+        "question": "Complete Lens Edge Focus of ALI Cameras",
+        "options": ["Select","Done","Back",],
+        "next": {"Select":"End","Done": "Opt 3", "No": "End","Back": "Opt 5"}
+    },
+    "Opt 7": {
+        "question": "Audit confirms missing lenses",
+        "options": ["Select","Done","Back",],
+        "next": {"Select":"End","Done": "Opt 8", "No": "End","Back": "Opt 5"}
+    },
+    "Opt 8": {
+        "question": "Complete YAS audit to determine if location specific Missing",
+        "options": ["Select","Location specific","General Missing",],
+        "next": {"Select":"End","Location specific": "Opt 9", "General Missing": "End","Back": "Opt 6"}
     },
     "End": {
         "question": "Thank you for using the chatbot!",
