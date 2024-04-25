@@ -32,8 +32,8 @@ def chatbot():
         
         st.write(question)
         
-        for option in options:
-            option_key = f"{current_state}_{option}"  # Unique key for each button
+        for i, option in enumerate(options):
+            option_key = f"{current_state}_{option}_{i}"  # Unique key for each button
             if st.button(option, key=option_key):
                 current_state = flowchart[current_state]["next"][option]
                 break
